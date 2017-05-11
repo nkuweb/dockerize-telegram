@@ -1,0 +1,23 @@
+version: '2.0'
+services:
+  web:
+    build: ./
+    volumes:
+      - /web
+    command: python3 -u web.py
+    ports:
+      - "5000:5000"
+    links:
+      - db
+
+  telegram:
+    build:
+      context: .
+      dockerfile: ./Dockerfile-Telegram
+    volumes:
+      - /telegram-bot
+    command: python3 -u base.py
+    links:
+      - db
+  db:
+    image: mongo:latest

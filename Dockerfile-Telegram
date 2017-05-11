@@ -1,0 +1,7 @@
+FROM python:latest
+COPY /telegram-bot /telegram-bot
+WORKDIR /telegram-bot
+RUN apt-get update
+RUN apt-get install -y python3-setuptools
+RUN pip3 install -r req-telegram.txt
+
