@@ -190,10 +190,10 @@ body {
           												<div class="media-body">
           													<span class="media-meta pull-right">Şubat 13, 2016</span>
           													<h4 class="title">
-          														User_Name
+          														{{ item['user'] }}
           														<span class="pull-right pagado"> </span>
           													</h4>
-          													<p class="summary">{{ item }}</p>
+          													<a href class="summary">{{ item['url'] }}</a>
           												</div>
           											</div>
                         {% endfor %}
