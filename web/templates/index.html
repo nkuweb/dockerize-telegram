@@ -166,23 +166,6 @@ body {
 						<div class="btn-group">
             <h1>Linkler</h1>
 						</div>
-						<div class="table-container">
-							<table class="table table-filter">
-								<tbody>
-									<tr data-status="pagado">
-										<td>
-											<div class="ckbox">
-												<input type="checkbox" id="checkbox1">
-												<label for="checkbox1"></label>
-											</div>
-										</td>
-										<td>
-											<a href="javascript:;" class="star">
-												<i class="glyphicon glyphicon-star"></i>
-											</a>
-										</td>
-										<td>
-
                       {% for item in datas %}
 
           											<div class="media">
@@ -193,14 +176,10 @@ body {
           														{{ item['user'] }}
           														<span class="pull-right pagado"> </span>
           													</h4>
-          													<a href class="summary">{{ item['url'] }}</a>
+          													<a href={{item['url']}} class="summary">{{ item['url'] }}</a>
           												</div>
           											</div>
                         {% endfor %}
-
-
-
-
 
 										</td>
 									</tr>
