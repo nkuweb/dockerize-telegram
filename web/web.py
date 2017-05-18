@@ -9,6 +9,3 @@ def index():
     client = db.telegram
     fetcher  = client.telegramcollection
     return render_template("index.html",datas=fetcher.find())
-
-
-app.run(debug=True,host='0.0.0.0')

@@ -2,13 +2,25 @@ version: '2.0'
 services:
   web:
     build: ./
+    expose:
+      - "8000"
     volumes:
       - /web
-    command: python3 -u web.py
-    ports:
-      - "5000:5000"
+    command: gunicorn  web:app
     links:
       - db
+
+  nginx:
+    restart: always
+    build:
+      context: .
+      dockerfile: ./Dockerfile-Nginx
+    ports:
+      - "80:80"
+    links:
+      - web:web
+
+
 
   telegram:
     build:
