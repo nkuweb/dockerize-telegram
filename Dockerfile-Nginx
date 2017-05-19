@@ -1,4 +1,0 @@
-FROM tutum/nginx
-RUN rm /etc/nginx/sites-enabled/default
-COPY vm_scripts/flask_config /etc/nginx/sites-enabled
-COPY vm_scripts/flask_config /etc/nginx/sites-available

@@ -1,5 +1,0 @@
-FROM python:latest
-COPY /telegram-bot /telegram-bot
-WORKDIR /telegram-bot
-
-RUN pip3 install -r req-telegram.txt
