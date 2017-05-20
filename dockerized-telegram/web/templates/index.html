@@ -6,35 +6,37 @@
 <head>
 <body>
 
+
+
+
+<div class="container" style=" height:auto;" >
+
+<div class="col-md-10" style=" margin-top:100px; border:1px solid gray; border-radius:20px;";>
+
   <div class="container">
 
-    <div class="col-md-8">
-
-    <table class="table">
-
-    <tr ><h1 style="text-align:center">Linkler<h1></tr>
-
-    <br style="margin-top:50px;">
-
-    <tr>
-    <th>Link</th>
-    <th>Tarih</th>
-
-    </tr>
+    <h1 style="text-align:justify;">NKÜ-WEB Telegram Bot</h1>
+ <tr><h1 style="text-align:justify;">Linkler</h1></tr>
+ <br>
 
 
-          <tr>
-
-       {% for item in datas %}
-          <td>{{ item['user'] }}   ekledi : '<a href={{item['url']}} class="summary"> {{ item['url'] }}</a></td>
-         <td>{{ item['date'] }}</td>
-
-        {% endfor %}
+     <table class="table">
 
 
-    </tr>
+           <tr>
 
-  </table>
+        {% for item in datas %}
+           <td>{{ item['user'] }}   ekledi : '<a href={{item['url']}} class="summary"> {{ item['url'] }}</a></td>
+          <td>{{ item['date'] }}</td>
+
+         {% endfor %}
+
+
+     </tr>
+
+   </table>
+
+
   </div>
   </div>
 

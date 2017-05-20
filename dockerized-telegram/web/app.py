@@ -5,10 +5,11 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    db=MongoClient('db')
+    db=MongoClient('localhost')
     client = db.telegram
     fetcher  = client.telegramcollection
     return render_template("index.html",datas=fetcher.find())
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template("404.html")
+app.run(debug=True)
