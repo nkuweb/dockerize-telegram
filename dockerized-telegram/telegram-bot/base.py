@@ -1,18 +1,19 @@
 # -*- coding: utf-8 -*-
-import urllib
+
 from database import MongoDB
-import check
+import check,os
 from telegram.ext import Updater,CommandHandler,MessageHandler, Filters
-import os
 
 Token="376593798:AAHMNABESGpXiFGiQ8Bg-0CnHc2EwyXD1hk"
 updater = Updater(token = Token)
 dispatcher = updater.dispatcher
 mongodb=MongoDB()
 
+users=["utkucanbykl","vlademir92","badgeekluck"]
+
+
 def start(bot,update):
     bot.sendMessage(chat_id = update.message.chat_id, text="Bot çalışıyor.")
-    print ("Hello")
 
 def hello(bot,update):
     bot.sendMessage(chat_id = update.message.chat_id, text="Hello "+update.message.from_user.first_name)
@@ -24,18 +25,20 @@ def echo(bot,update):
     bot.sendMessage(chat_id = update.message.chat_id, text="Url Listesi için /UrlList")
 
 def kaynak(bot,update):
-
+    if(update.message.from_user.username not in users):
+        bot.sendMessage(chat_id=update.message.chat_id,text="Kaynak eklemenize izin yok .\n@utkucanbykl - @vlademir92 - @badgeekluck 'a mesaj atıp eklenmemizi isteyebilirsiniz .")
+        return
     msg = update.message.text
     x = str(msg ).replace("/kaynak"," ")
     k =  x.split(" ")
     a=check.url(k[2])
     if (a == True):
+        if(mongodb.Insert(x,update.message.from_user.first_name)==False):
+            bot.sendMessage(chat_id=update.message.chat_id,text="zaten var")
+            return 0
         bot.sendMessage(chat_id=update.message.chat_id , text=update.message.from_user.first_name +
                                                               "'nin Kaynağı Databaseye kaydettim")
-        mongodb.Insert(x,update.message.from_user.first_name)
-        x = str(update.message.text).replace("/kaynak", " ")
-        readme.write("{}".format(update.message.from_user.first_name+" <li>" + x + "</li>"))
-        readme.close()
+
         bot.sendMessage(chat_id=update.message.chat_id, text="Url github'a eklendi.")
     else:
         bot.sendMessage(chat_id=update.message.chat_id,text="URL HATALI")
@@ -44,6 +47,8 @@ def UrlList(bot,update):
     list=mongodb.UrlList()
     for i in range(len(list)):
         bot.sendMessage(chat_id=update.message.chat_id, text=list[i]["url"])
+
+
 
 
 #---------------HANDLER IS HERE--------------------
@@ -56,7 +61,6 @@ urllist_handler=CommandHandler('UrlList',UrlList)
 
 
 
-
 #--------------------------------------------------
 #----------------DISPATCHER IS HERE----------------
 
@@ -65,7 +69,6 @@ dispatcher.add_handler(start_handler)
 dispatcher.add_handler(hello_handler)
 dispatcher.add_handler(kaynak_handler)
 dispatcher.add_handler(urllist_handler)
-
 #--------------------------------------------------
 
 updater.start_polling()
