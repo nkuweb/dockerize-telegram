@@ -19,7 +19,7 @@ class MongoDB():
             else:
                 return False
         except:
-            print("Exepet")
+            print("Excepet")
             return False
 
     def UrlList(self):

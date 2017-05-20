@@ -26,7 +26,7 @@ def echo(bot,update):
 
 def kaynak(bot,update):
     if(update.message.from_user.username not in users):
-        bot.sendMessage(chat_id=update.message.chat_id,text="Kaynak eklemenize izin yok .\n@utkucanbykl ya da @vlademir92 'e mesaj atıp eklenmenizi istiyebilirsiniz .")
+        bot.sendMessage(chat_id=update.message.chat_id,text="Kaynak eklemenize izin yok .\n@utkucanbykl - @vlademir92 - @badgeekluck 'a mesaj atıp eklenmemizi isteyebilirsiniz .")
         return
     msg = update.message.text
     x = str(msg ).replace("/kaynak"," ")
@@ -38,13 +38,7 @@ def kaynak(bot,update):
             return 0
         bot.sendMessage(chat_id=update.message.chat_id , text=update.message.from_user.first_name +
                                                               "'nin Kaynağı Databaseye kaydettim")
-        readme = open('README.md', 'a')
-        x = str(update.message.text).replace("/kaynak", " ")
-        readme.write("{}".format(update.message.from_user.first_name+" <li>" + x + "</li>"))
-        readme.close()
-        os.system("git add -A")
-        os.system("git commit -m '" + update.message.from_user.first_name + " Link '")
-        os.system("git push")
+
         bot.sendMessage(chat_id=update.message.chat_id, text="Url github'a eklendi.")
     else:
         bot.sendMessage(chat_id=update.message.chat_id,text="URL HATALI")
