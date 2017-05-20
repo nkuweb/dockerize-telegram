@@ -9,7 +9,7 @@ updater = Updater(token = Token)
 dispatcher = updater.dispatcher
 mongodb=MongoDB()
 
-users=["utkucanbykl","vlademir92","badgeekluck"]
+users=["utkucanbykl","vlademir92","badgeekluck","hikmos"]
 
 
 def start(bot,update):
@@ -26,7 +26,7 @@ def echo(bot,update):
 
 def kaynak(bot,update):
     if(update.message.from_user.username not in users):
-        bot.sendMessage(chat_id=update.message.chat_id,text="Kaynak eklemenize izin yok .\n@utkucanbykl - @vlademir92 - @badgeekluck 'a mesaj atıp eklenmemizi isteyebilirsiniz .")
+        bot.sendMessage(chat_id=update.message.chat_id,text="Kaynak eklemenize izin yok .\n@utkucanbykl - @vlademir92 - @badgeekluck - @hikmos 'a mesaj atıp eklenmemizi isteyebilirsiniz .")
         return
     msg = update.message.text
     x = str(msg ).replace("/kaynak"," ")
