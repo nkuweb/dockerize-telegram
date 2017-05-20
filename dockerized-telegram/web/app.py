@@ -9,3 +9,6 @@ def index():
     client = db.telegram
     fetcher  = client.telegramcollection
     return render_template("index.html",datas=fetcher.find())
+@web.errorhandler(404)
+def page_not_found(e):
+    return render_template("404.html")
