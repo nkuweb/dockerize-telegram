@@ -22,9 +22,16 @@
 
     </tr>
 
-    <tr>
-      <td>asdasdasda</td>
-      <td>asdasdasdasd</td>
+      
+          <tr>
+      
+       {% for item in datas %}
+          <td><a href={{item['url']}} class="summary">{{ item['user'] }}   {{ item['url'] }}</a></td>
+         <td>{{ item['date'] }}</td>
+     
+        {% endfor %}
+
+
     </tr>
 
   </table>
