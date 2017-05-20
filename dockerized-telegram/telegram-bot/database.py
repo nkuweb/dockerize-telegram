@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+import datetime
 
 class MongoDB():
 
@@ -10,7 +11,9 @@ class MongoDB():
     def Insert(self,url,user):
         urll={
             "url":url,
-            "user":user
+            "user":user,
+            "date":datetime.datetime.now()
+
         }
         try:
             if(self.UrlCheck(str(url))==False):
