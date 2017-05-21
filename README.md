@@ -1,6 +1,6 @@
 # DOCKERIZE TELEGRAM SERVIS
 
-## Bağımlılıklar:
+## Dependieces:
 * NGINX
 * MongoDB
 * Telegram
