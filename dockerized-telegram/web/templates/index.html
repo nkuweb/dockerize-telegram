@@ -23,16 +23,18 @@
      <table class="table">
 
 
-           <tr>
+          
 
         {% for item in datas %}
+        <tr>
            <td>{{ item['user'] }}   ekledi : '<a href={{item['url']}} class="summary"> {{ item['url'] }}</a></td>
           <td>{{ item['date'] }}</td>
-
+         </tr>
+       <br>
          {% endfor %}
 
 
-     </tr>
+    
 
    </table>
 
