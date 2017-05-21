@@ -28,9 +28,13 @@ $ docker-compose up # wake up all system.
   ``` 
   Next trick is for the NGINX :
   
+  
   ```
-   ## The [PORT] is not use with another service on your host machine.
-          if it is using by another service change [PORT] from sites-enabled/flask_config and 
+   ##sh
+         The [PORT] is not use with another service on your host machine. 
+         if it is using by another service make some change            
+         on [PORT] from sites-enabled/flask config and docker-compose.yml
+         [PORT] is default 80 .
   
   server {
           listen [PORT] 
@@ -42,8 +46,7 @@ $ docker-compose up # wake up all system.
      }
     ....
    ``` 
-   If you wanna run telegram service on your 
-   80 port you must check which service using your 80 port.
+   If you wanna run telegram service on your <br> 80 port you must check which service is using your 80 port.
    ``` sh
       $ sudo netstat -plnt | grep ':80'
    ``` 
