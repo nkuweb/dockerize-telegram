@@ -16,7 +16,7 @@ def start(bot,update):
     bot.sendMessage(chat_id = update.message.chat_id, text="Bot çalışıyor.")
 
 def hello(bot,update):
-    bot.sendMessage(chat_id = update.message.chat_id, text="Hello "+update.message.from_user.first_name)
+    bot.sendMessage(chat_id = update.message.chat_id, text="Hello test bot "+update.message.from_user.first_name)
 
 def echo(bot,update):
     bot.sendMessage(chat_id = update.message.chat_id, text="Merhaba TEST-BOT "+update.message.from_user.first_name)
