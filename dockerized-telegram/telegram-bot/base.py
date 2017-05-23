@@ -19,7 +19,7 @@ def hello(bot,update):
     bot.sendMessage(chat_id = update.message.chat_id, text="Hello "+update.message.from_user.first_name)
 
 def echo(bot,update):
-    bot.sendMessage(chat_id = update.message.chat_id, text="Merhaba "+update.message.from_user.first_name)
+    bot.sendMessage(chat_id = update.message.chat_id, text="Merhaba TEST-BOT "+update.message.from_user.first_name)
     bot.sendMessage(chat_id = update.message.chat_id, text="Kaynak atmak için /kaynak <link>")
     bot.sendMessage(chat_id = update.message.chat_id, text="Bota Hello dedirtmek için /hello")
     bot.sendMessage(chat_id = update.message.chat_id, text="Url Listesi için /UrlList")
