@@ -9,7 +9,7 @@ updater = Updater(token = Token)
 dispatcher = updater.dispatcher
 mongodb=MongoDB()
 
-users=["utkucanbykl","vlademir92","badgeekluck","hikmos","@307760143 (Hasret Okul) "]
+users=["utkucanbykl","vlademir92","badgeekluck","hikmos","levistiko"]
 
 
 def start(bot,update):
