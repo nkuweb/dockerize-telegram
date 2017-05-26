@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    db=MongoClient('localhost')
+    db=MongoClient('db')
     client = db.telegram
     fetcher  = client.telegramcollection
     return render_template("index.html",datas=fetcher.find().sort("date",pymongo.DESCENDING))
